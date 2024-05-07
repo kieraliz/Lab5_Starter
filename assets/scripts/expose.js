@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded', init);
 
-// global variables
+// global variables accessed anywhere
 var horn = document.getElementById("horn-select");
 var audio = document.getElementsByClassName("hidden")[0];
 var audioButton = document.querySelector("button"); 
@@ -13,7 +13,7 @@ var jsConfetti = new JSConfetti();
  */
 function init() {  
   horn.addEventListener("change", updateHorn);
-  volumeDial.addEventListener("click", updateVolume);
+  volumeDial.addEventListener("input", updateVolume);
   audioButton.addEventListener("click", playSound);
 }
 
@@ -50,9 +50,6 @@ function updateVolume(volumeDial) {
   const volumeImage = document.querySelector('#volume-controls img');
 
   // changes volume icon depending on set volume level
-
-  // NEEED to move dynamically as cursor shifts
-
   if (volumeLevel == 0) {
     volumeImage.src = "assets/icons/volume-level-0.svg";
   }
