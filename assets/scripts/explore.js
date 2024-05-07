@@ -23,20 +23,19 @@ function populateVoiceList() {
     return;
   }
   voices = speechSynthesis.getVoices();
-  
-  // for each voice, create option element
-  for (let i = 0; i < voices.length; i++) {
-    const option = document.createElement("option");
-    option.textContent = `${voices[i].name} (${voices[i].lang})`;
 
-    // add "default" tag
-    if (voices[i].default) {
+  // for each voice, create option element
+  for (const voice of voices) {
+    const option = document.createElement("option");
+    option.textContent = `${voice.name} (${voice.lang})`;
+  
+    if (voice.default) {
       option.textContent += " — DEFAULT";
     }
-
+  
     // set language and name attributes to voiceDropdown options
-    option.setAttribute("data-lang", voices[i].lang);
-    option.setAttribute("data-name", voices[i].name);
+    option.setAttribute("data-lang", voice.lang);
+    option.setAttribute("data-name", voice.name);
     voiceDropdown.appendChild(option);
   }
 }
