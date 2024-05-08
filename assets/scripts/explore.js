@@ -1,14 +1,13 @@
 window.addEventListener('DOMContentLoaded', init);
 
 // global variables
-const synth = window.speechSynthesis;
+var synth = window.speechSynthesis;
 var voices = [];
 var voiceDropdown = document.getElementById("voice-select");
 var inputText = document.getElementById("text-to-speak");
 var playButton = document.querySelector('button');
 
 function init() {
-  voiceDropdown.addEventListener("click", populateVoiceList);
   playButton.addEventListener("click", playSound);
 
   // populate voice list and check for errors
