@@ -8,7 +8,7 @@ import {
 
 // isPhoneNumber
 test('UCSD phone number', () => {
-    expect(isPhoneNumber(`858-534-2230`)).toBe(false); // wrong! <-----
+    expect(isPhoneNumber(`858-534-2230`)).toBe(true);
 });
 test('CSE phone number', () => {
     expect(isPhoneNumber(`858-534-8872`)).toBe(true);
